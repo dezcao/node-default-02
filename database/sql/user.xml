@@ -1,0 +1,9 @@
+<document>
+	<query>
+		<select id="getUser">
+			SELECT * FROM USER
+		</select>
+
+
+	</query>
+</document>

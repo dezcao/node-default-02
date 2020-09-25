@@ -1,0 +1,9 @@
+{
+    "name": "dev",
+    "script":"./server.js",
+    "watch": true,
+    "interpreter": "node",
+    "env": {
+        "port": 8000
+    }
+}
