@@ -4,8 +4,8 @@ require('dotenv').config();
 process.env.ROOT = __dirname;
 const dbPool = require(`${process.env.ROOT}/database/pool`);
 app.dbPool = dbPool;
-// const redis = require(`${process.env.ROOT}/database/redis`);
-// app.redis = redis;
+const redis = require(`${process.env.ROOT}/database/redis`);
+app.redis = redis;
 
 require(`./middleware/index.js`)(app);
 require(`./router/index.js`)().then(router => {
