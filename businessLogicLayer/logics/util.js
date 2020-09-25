@@ -17,12 +17,12 @@ function randomStr(strLength) {
         .map(() => chars[Math.trunc(Math.random() * chars.length)])
         .join('');
 }
-function uid(options = {}) {
+
+function uid(prefix, strLength = 6) {
     const now = String(Date.now());
     const middlePos = Math.ceil(now.length / 2);
-    let output = `${now.substr(0, middlePos)}-${randomStr(options.strLength || 6)}-${now.substr(middlePos)}`;
-    // We add a 3 letter CODE in front of the id to make it more recognizable
-    if (options.prefix) output = `${options.prefix}-${output}`;
+    let output = `${now.substr(0, middlePos)}-${randomStr(strLength)}-${now.substr(middlePos)}`;
+    if (prefix) output = `${prefix}-${output}`;
     return output;
 }
 
