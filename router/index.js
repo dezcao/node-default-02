@@ -9,6 +9,10 @@ let init = async function(req, res, next) {
 	router.get('/', function(req, res, next) {
 		res.json({msg: 'hello~!! root'});
 	});
+
+	router.post('/upload', multerUpload('test').array('file', 10), function(req, res, next) {
+		res.json({msg: 'hello~!! upload'});
+	});
 	
 	router.get('/login/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }));
 	router.get('/login/oauth2/code/google', function(req, res, next) {

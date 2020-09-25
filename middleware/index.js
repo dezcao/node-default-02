@@ -25,7 +25,7 @@ module.exports = (app) => {
 	));
 	
 	for (const middleware of defaultMiddlewares) {
-		console.log(middleware);
+		// console.log(middleware);
 		app.use(require(path.join(__dirname, 'middlewares', `${middleware}.js`)))
 	}
 };

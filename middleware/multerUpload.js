@@ -18,8 +18,9 @@ module.exports = (folder) => {
 		key: async function(req, file, cb) {
 			// let extension = path.extname(file.originalname); // 확장자
 			// let basename = path.basename(file.originalname, extension); // 확장자 제거한 이미지 이름
-			let img_id = util.uid({prefix: 'img'});
-			cb(null, `image/${folder}/${img_id}`);
+			let img_id = util.uid('img');
+			console.log(img_id);
+			cb(null, `${folder}/${img_id}`);
 		},
 		acl: 'public-read',
 		contentDisposition: 'attachment',
