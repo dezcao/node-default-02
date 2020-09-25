@@ -233,6 +233,9 @@ module.exports = {
 					// ${value} => value
 					query = query.replace('${' + propertyName + '}', properties[propertyName].attr.value);
 				}
+				
+				// Caution! Sql injection.
+				query = query.replace('${' + propertyName + '}', queryParam[propertyName]);
 			} else {
 				if (include.name === 'include') {
 					query = query + ' ' + this._recursive([include], queryParam, XmlElement);
