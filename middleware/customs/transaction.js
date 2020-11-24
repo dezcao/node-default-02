@@ -28,7 +28,9 @@ module.exports = function transaction(logic) {
 				// 		});
 				// 	}
 				// }
-				res.json({error: error.message});
+				next(error);
+				// next(error.message);
+				// res.json({error: error.message});
 			} finally {
 				conn.release();
 			}

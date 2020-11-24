@@ -9,6 +9,8 @@ module.exports = async (req, res, next) => {
     if (conn) {
         data = (await query.EXECUTE('sample.xml', 'getAPI', null, conn))[0];
     }
+    // throw Error('myError~~~'); // error handle test! look at server.js
+
     // let value = Date.now();
     // moment().format('MMMM Do YYYY, h:mm:ss a'); // November 24th 2020, 7:44:45 pm
     // moment().format('dddd');                    // Tuesday
