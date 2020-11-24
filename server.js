@@ -1,14 +1,24 @@
+// express.js : https://expressjs.com/
 const express = require('express');
 const app = express();
+
+// dotenv : https://www.npmjs.com/package/dotenv
 require('dotenv').config();
+
+// regist variable ROOT for another directory. Not "../../directory/path/file.name" but `${processe.env.ROOT}/directory/path/file.name`.
 process.env.ROOT = __dirname;
-const dbPool = require(`${process.env.ROOT}/database/pool`);
+
+// database pool => express.js can approach app from req. Like this "req.app" => "req.app.dbPool" = `${process.env.ROOT}/database/pool`
+const dbPool = require(`${process.env.ROOT}/database/config/mysqlPool`);
 app.dbPool = dbPool;
-const redis = require(`${process.env.ROOT}/database/redis`);
+const redis = require(`${process.env.ROOT}/database/config/redis`);
 app.redis = redis;
 
+// Middleware : bodyParser, cors, static
 require(`./middleware/index.js`)(app);
-require(`./router/index.js`)().then(router => {
+
+// Router
+require(`./router/index.js`)(app).then(router => {
 	app.use(router);
 
 	app.use(function(error, req, res, next) {
@@ -21,6 +31,7 @@ require(`./router/index.js`)().then(router => {
 	});
 });
 
+// unhandled server side error.
 process.on('unhandledRejection', (reason, promise) => {
 	console.log('Unhandled Rejection at:', promise, 'reason:', reason);
 });

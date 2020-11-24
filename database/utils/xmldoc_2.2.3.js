@@ -26,6 +26,9 @@ module.exports = {
 			}
 		}
 		value = (typeof value === 'string' ? `'${value}'` : value);
+		if (!value) {
+			return value;
+		}
 		if (objectCheck && typeof value === 'object') {
 			return value.length ? true : Object.keys(value).length ? true : false;
 		}
@@ -39,7 +42,7 @@ module.exports = {
 		if (`(!=)&| `.includes(rs.char)) {
 			keyString = false;
 		} else if (rs.char === `'` || rs.char === `"`) {
-			keyString = true;
+			// keyString = true;
 		} else if (!rs.key && !isNaN(parseInt(rs.char))) {
 			keyString = false;
 		}
@@ -160,14 +163,14 @@ module.exports = {
 	},
 
 	_foreach: function(child, queryParam) {
-		let {item = 'value', index:indexName, collection, open = '', separator = ',', close = ''} = child.attr;
+		let {item = 'value', collection, open = '', separator = ',', close = ''} = child.attr;
 		var query = '';
 
 		if (!collection) {
 			return query;
 		}
 		
-		collectionValue = this._getParamValue(collection, queryParam, false);
+		let collectionValue = this._getParamValue(collection, queryParam, false);
 		if (!collectionValue) {
 			return query;
 		}

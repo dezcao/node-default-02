@@ -3,7 +3,7 @@ const path = require('path');
 const xmldoc = require('./xmldoc_2.2.3.js');
 
 let STR = async (fileName, sqlId, queryParam) => {
-    let xmlFileString = fs.readFileSync(path.join(__dirname, './sql', fileName), 'utf8');
+    let xmlFileString = fs.readFileSync(`${process.env.ROOT}/database/sql/${fileName}`, 'utf8');
     return await xmldoc.queryParser(xmlFileString, sqlId, queryParam);
 };
 
@@ -14,7 +14,8 @@ let EXECUTE_DEFUALT = async (fileName, sqlId, queryParam, conn) => {
 };
 
 let EXECUTE = async (fileName, sqlId, queryParam, conn) => {
-    let [rows, fields] = await EXECUTE_DEFUALT(fileName, sqlId, queryParam, conn);
+    let [rows] = await EXECUTE_DEFUALT(fileName, sqlId, queryParam, conn);
+    // let [rows, fields] = await EXECUTE_DEFUALT(fileName, sqlId, queryParam, conn);
     return rows;
 };
 
@@ -30,7 +31,8 @@ let EXECUTE_ARRAY = async (fileName, sqlId, paramArray, conn) => {
     let result = [];
     for (var i = 0; i < paramArray.length; i++) {
         let queryParam = paramArray[i];
-        let [rows, fields] = await conn.query(query, queryParam);;
+        // let [rows, fields] = await conn.query(query, queryParam);;
+        let [rows] = await conn.query(query, queryParam);
         result.push(rows);
     }
     return result;
