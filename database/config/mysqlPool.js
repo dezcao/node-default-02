@@ -7,6 +7,7 @@ if (process.env.DEV_DB_HOST) {
     user: process.env.DEV_DB_USER,
     password: process.env.DEV_DB_PASS,
     database: process.env.DEV_DB_NAME,
+    charset : 'utf8mb4',
     namedPlaceholders: true,
     connectionLimit: 10
   });
