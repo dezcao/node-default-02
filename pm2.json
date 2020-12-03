@@ -1,6 +1,6 @@
 {
     "name": "dev",
-    "script":"./server.js",
+    "script":"./app.js",
     "watch": true,
     "interpreter": "node",
     "env": {

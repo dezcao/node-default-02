@@ -2,7 +2,7 @@
   "name": "node-api",
   "version": "1.0.0",
   "description": "node API sample",
-  "main": "server.js",
+  "main": "app.js",
   "directories": {
     "test": "test"
   },
