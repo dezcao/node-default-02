@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dezcao/nodescafolding.git"
+    "url": "git+https://github.com/dezcao/node-default-02.git"
   },
   "author": "jaepil",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dezcao/nodescafolding/issues"
+    "url": "https://github.com/dezcao/node-default-02/issues"
   },
-  "homepage": "https://github.com/dezcao/nodescafolding#readme",
+  "homepage": "https://github.com/dezcao/node-default-02#readme",
   "dependencies": {
     "apollo-server-express": "^2.16.0",
     "aws-sdk": "^2.726.0",
