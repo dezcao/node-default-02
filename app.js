@@ -26,8 +26,8 @@ require(`./router/index.js`)(app).then(router => {
 		res.json({"error": error.message});
 	});
 	
-	app.listen(process.env.port || 8000, () => {
-		console.log('Server started, ', process.env.port || 8000);
+	app.listen(process.env.PORT || 8000, () => {
+		console.log('Server started, ', process.env.PORT || 8000);
 	});
 });
 
