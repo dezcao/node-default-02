@@ -10,11 +10,14 @@ branches:
   only:
     - master
 
-before_install:
-  - npm update -g npm
-
-after_script:
-  - pm2 start pm2.json
+deploy:
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    application: masofa
+    deployment_group: masofa-api-group
+    region: ap-northeast-2
+    wait-until-deploy: true
 
 notifications:
   email:
