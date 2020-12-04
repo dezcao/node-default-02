@@ -1,4 +1,4 @@
-let query = require(`${process.env.ROOT}/database/utils/getQuery`);
+let query = require(`../../database/utils/getQuery`);
 let moment = require('moment');
 module.exports = async (req, res, next) => {
     let conn = req.conn;

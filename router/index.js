@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const routes = require('fs').readdirSync(`${process.env.ROOT}/router/routes`);
+const routes = require('fs').readdirSync(`./routes`);
 
 module.exports = async (app) => {
 	for (const route of routes) {
 		let functions = [];
-		const { method, url, logic, auth, bucket, uploadFolder } = require(`${process.env.ROOT}/router/routes/${route}`)();
+		const { method, url, logic, auth, bucket, uploadFolder } = require(`./routes/${route}`)();
 		
 		if (auth) { functions.push(app.auth); } // middleware/index.js => already registed : app.auth = function (req, res, next) {...}
 

@@ -1,4 +1,4 @@
-const { test } = require(`${process.env.ROOT}/service/index.js`);
+const { test } = require(`../../service/index.js`);
 
 module.exports = () => {
     return {
