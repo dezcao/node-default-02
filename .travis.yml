@@ -1,0 +1,22 @@
+# https://devhints.io/travis
+language: node_js
+
+sudo: false
+
+node_js:
+  - '0.12'
+
+branches:
+  only:
+    - master
+
+before_install:
+  - npm update -g npm
+
+after_script:
+  - pm2 start pm2.json
+
+notifications:
+  email:
+    recipients:
+      - 'dezcao@gmail.com'
