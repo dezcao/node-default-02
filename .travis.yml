@@ -17,7 +17,7 @@ deploy:
     application: masofa
     deployment_group: masofa-api-group
     region: ap-northeast-2
-    wait-until-deploy: true
+    wait-until-deploy: false
 
 notifications:
   email:
