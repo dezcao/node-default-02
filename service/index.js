@@ -1,5 +1,5 @@
 const fs = require('fs');
-const fileNames = fs.readdirSync(`./logic`);
+const fileNames = fs.readdirSync(`${__dirname}/logic`);
 
 const logicObj = () => {
 	let logicObject = {};

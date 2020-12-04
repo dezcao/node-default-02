@@ -1,7 +1,7 @@
 const fs = require('fs');
-const uses = fs.readdirSync(`./use`);
-const others = fs.readdirSync(`./others`);
-const customs = fs.readdirSync(`./customs`);
+const uses = fs.readdirSync(`${__dirname}/use`);
+const others = fs.readdirSync(`${__dirname}/others`);
+const customs = fs.readdirSync(`${__dirname}/customs`);
 
 module.exports = (app) => {
 

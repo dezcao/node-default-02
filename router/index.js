@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const routes = require('fs').readdirSync(`./routes`);
+const routes = require('fs').readdirSync(`${__dirname}/routes`);
 
 module.exports = async (app) => {
 	for (const route of routes) {
