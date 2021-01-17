@@ -44,6 +44,7 @@
     "passport-google-oauth": "^2.0.0",
     "passport-kakao": "^1.0.0",
     "passport-naver": "^1.0.6",
+    "pm2": "^4.5.1",
     "redis": "^3.0.2",
     "xmldoc": "^1.1.2"
   }
