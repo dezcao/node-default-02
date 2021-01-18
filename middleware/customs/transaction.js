@@ -8,7 +8,7 @@ module.exports = function transaction(logic) {
 			let conn = await dbPool.getConnection();
 			try {
 				await conn.beginTransaction();
-				console.log("~~~~");
+				console.log("~~~~111");
 				console.log(conn);
 				console.log("~~~~");
 				req.conn = conn;
