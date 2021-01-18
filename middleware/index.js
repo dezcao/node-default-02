@@ -13,10 +13,10 @@ module.exports = (app) => {
 
 	// auth, upload, transaction
 	for (const custom of customs) {
-		console.log(custom);
+		// console.log(custom);
 		app[custom.slice(0,-3)] = require(`./customs/${custom}`);
 	}
-	console.log(app.auth);
+	
 	// social login etc.
 	// for (const other of others) {
 		
