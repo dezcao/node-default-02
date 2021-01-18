@@ -5,7 +5,7 @@ module.exports = async (req, res, next) => {
     // let { user } = req.body;
     // let { key } = req.query;
     // let redis = req.app.redis;
-    let data = `check please, database connection infomation. : ${process.env.ROOT}`;
+    let data = `check please, database connection infomation. haaaa.... : ${process.env.ROOT}`;
     console.log(`hi i am hello ${conn}`);
     if (conn) {
         data = (await query.EXECUTE('sample.xml', 'getAPI', null, conn))[0];
