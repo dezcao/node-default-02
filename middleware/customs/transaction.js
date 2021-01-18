@@ -1,10 +1,10 @@
 
-module.exports = async function transaction(req, res, next) {
-	let { dbPool } = req.app;
-	
-	let logic = req.app.logic;
+module.exports = async function transaction(app, logic) {
+	let { dbPool } = app;
+	console.log(logic);
 	if (!dbPool) {
-		await logic(req, res, next);
+		return logic;
+		// await logic(req, res, next);
 	} else {
 		let conn = await dbPool.getConnection();
 		
