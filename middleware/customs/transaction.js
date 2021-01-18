@@ -1,7 +1,7 @@
 
 module.exports = async function transaction(req, res, next) {
 	let { dbPool } = req.app;
-	console.log(req.app.dbPool);
+	
 	let logic = req.app.logic;
 	if (!dbPool) {
 		await logic(req, res, next);
