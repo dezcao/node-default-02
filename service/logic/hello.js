@@ -1,10 +1,13 @@
 let query = require(`${process.env.ROOT}/database/utils/getQuery`);
 let moment = require('moment');
 module.exports = async (req, res, next) => {
+    // let conn = req.conn;
     let conn = req.conn;
     // let { user } = req.body;
     // let { key } = req.query;
     // let redis = req.app.redis;
+    console.log(`connnnnnnnnnnnnnn`, conn);
+    
     let data = `check please, database connection infomation. haaaa.... : ${process.env.ROOT}`;
     
     if (conn) {

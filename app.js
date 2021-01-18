@@ -9,9 +9,11 @@ require('dotenv').config();
 process.env.ROOT = __dirname;
 
 // database pool => express.js can approach app from req. Like this "req.app" => "req.app.dbPool" = `${process.env.ROOT}/database/pool`
-const dbPool = require(`./database/config/mysqlPool`);
+let dbPool = require(`${process.env.ROOT}/database/config/mysqlPool`);
 app.dbPool = dbPool;
-const redis = require(`./database/config/redis`);
+console.log("111111111");
+
+let redis = require(`./database/config/redis`);
 app.redis = redis;
 
 // Middleware : bodyParser, cors, static

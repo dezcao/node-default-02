@@ -3,7 +3,7 @@ const path = require('path');
 const xmldoc = require('./xmldoc_2.2.3.js');
 
 let STR = async (fileName, sqlId, queryParam) => {
-    let xmlFileString = fs.readFileSync(`../sql/${fileName}`, 'utf8');
+    let xmlFileString = fs.readFileSync(`${process.env.ROOT}/database/sql/${fileName}`, 'utf8');
     return await xmldoc.queryParser(xmlFileString, sqlId, queryParam);
 };
 
