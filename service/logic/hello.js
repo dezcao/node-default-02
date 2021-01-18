@@ -17,5 +17,5 @@ module.exports = async (req, res, next) => {
     // moment().format("MMM Do YY");               // Nov 24th 20
     // moment().format('YYYY [escaped] YYYY');     // 2020 escaped 2020
     // moment().format();                          // 2020-11-24T19:45:15+09:00
-    res.json({msg: 'hello', time: moment().format('MMMM Do YYYY, h:mm:ss a'), data });
+    res.json({msg: 'hello Webhook. git + jenkins', time: moment().format('MMMM Do YYYY, h:mm:ss a'), data });
 };
