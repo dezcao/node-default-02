@@ -11,7 +11,7 @@ process.env.ROOT = __dirname;
 // database pool => express.js can approach app from req. Like this "req.app" => "req.app.dbPool" = `${process.env.ROOT}/database/pool`
 let dbPool = require(`${process.env.ROOT}/database/config/mysqlPool`);
 app.dbPool = dbPool;
-console.log("111111111");
+console.log("111111111", dbPool);
 
 let redis = require(`./database/config/redis`);
 app.redis = redis;
