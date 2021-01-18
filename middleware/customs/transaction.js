@@ -10,6 +10,7 @@ module.exports = function transaction(logic) {
 				await conn.beginTransaction();
 				console.log("~~~~");
 				console.log(conn);
+				console.log("~~~~");
 				req.conn = conn;
 				await logic(req, res, next);
 				await conn.commit();
