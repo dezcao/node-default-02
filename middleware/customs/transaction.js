@@ -1,7 +1,8 @@
 
-module.exports = function transaction(logic) {
+module.exports = function transaction() {
 	return async function (req, res, next) {
 		let { dbPool } = req.app;
+		let logic = req.app.logic;
 		if (!dbPool) {
 			await logic(req, res, next);
 		} else {
