@@ -4,6 +4,7 @@ module.exports = () => {
     return {
         method: 'get',
         url: '/',
-        logic: hello
+        logic: hello,
+        transaction: true
     };
 };

@@ -1,42 +1,37 @@
 
-module.exports = async function transaction(app, logic) {
-	let { dbPool } = app;
-	console.log(logic);
-	if (!dbPool) {
-		return logic;
-		// await logic(req, res, next);
-	} else {
-		let conn = await dbPool.getConnection();
-		
+module.exports = function (app, logic) {
+	return async function (req, res, next) {
+		let conn = null;
 		try {
+			console.log('here is transaction ?? ');
+			let { dbPool } = app;
+			console.log('here is transaction');
+			if (!dbPool) {
+				console.log('Ooops. no database. go to logic');
+				logic(req, res, next);
+				return;
+			}
+	
+			conn = await dbPool.getConnection();
 			await conn.beginTransaction();
-			
-			req.conn = conn;
-
+	
+			app.req.conn = conn;
 			await logic(req, res, next);
 			await conn.commit();
 		} catch (error) {
-			conn.rollback();
-			// let files = req.files;
-			// if (files) {
-			// 	for (var i = 0; i < files.length; i++) {
-			// 		let file = files[i];
-			// 		let params = {
-			// 			Bucket: process.env.S3_BUCKET,
-			// 			Key: file.Key
-			// 		};
-				
-			// 		s3.deleteObject(params, function (err, data) {
-			// 			if (err) console.log(err, err.stack);
-			// 			else console.log(data);
-			// 		});
-			// 	}
-			// }
+			if (conn) {
+				conn.rollback();
+			}
 			next(error);
-			// next(error.message);
-			// res.json({error: error.message});
+			// error will be go to app.js
+			// app.use(function(error, req, res, next) {
+			// 	console.log(error.message);
+			// 	res.json({"error": error.message});
+			// });
 		} finally {
-			conn.release();
+			if (conn) {
+				conn.release();
+			}
 		}
 	}
 }

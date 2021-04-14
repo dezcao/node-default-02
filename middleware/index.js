@@ -1,7 +1,6 @@
 const fs = require('fs');
 console.log(__dirname);
 const uses = fs.readdirSync(`${__dirname}/use`);
-// const others = fs.readdirSync(`${__dirname}/others`);
 const customs = fs.readdirSync(`${__dirname}/customs`);
 
 module.exports = (app) => {
@@ -13,12 +12,11 @@ module.exports = (app) => {
 
 	// auth, upload, transaction
 	for (const custom of customs) {
-		// console.log(custom);
 		app[custom.slice(0,-3)] = require(`./customs/${custom}`);
+		console.log(custom);
 	}
 	
 	// social login etc.
 	// for (const other of others) {
-		
 	// }
 };
