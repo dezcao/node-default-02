@@ -3,9 +3,7 @@ module.exports = function (app, logic) {
 	return async function (req, res, next) {
 		let conn = null;
 		try {
-			console.log('here is transaction ?? ');
 			let { dbPool } = app;
-			console.log('here is transaction');
 			if (!dbPool) {
 				console.log('Ooops. no database. go to logic');
 				logic(req, res, next);
