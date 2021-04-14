@@ -3,5 +3,5 @@
 npm i
 npm i -g pm2
 pm2 start pm2.json
-localhost:8000/test2
+localhost:8000
 ```
