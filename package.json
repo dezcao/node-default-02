@@ -1,0 +1,52 @@
+{
+  "name": "node-api",
+  "version": "1.0.0",
+  "description": "node API sample",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dezcao/node-default-02.git"
+  },
+  "author": "jaepil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dezcao/node-default-02/issues"
+  },
+  "homepage": "https://github.com/dezcao/node-default-02#readme",
+  "dependencies": {
+    "apollo-server-express": "^2.16.0",
+    "aws-sdk": "^2.726.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "colors": "^1.4.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.5.0",
+    "formidable": "^1.2.2",
+    "graphql-playground-middleware-express": "^1.7.18",
+    "mocha": "^8.0.1",
+    "moment": "^2.29.1",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
+    "mysql2": "^2.1.0",
+    "named-placeholders": "^1.1.2",
+    "passport": "^0.4.1",
+    "passport-facebook": "^3.0.0",
+    "passport-google-oauth": "^2.0.0",
+    "passport-kakao": "^1.0.0",
+    "passport-naver": "^1.0.6",
+    "pm2": "^4.5.1",
+    "redis": "^3.0.2",
+    "xmldoc": "^1.1.2"
+  }
+}

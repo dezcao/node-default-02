@@ -1,0 +1,22 @@
+# https://devhints.io/travis
+language: node_js
+
+node_js:
+  - '0.12'
+
+branches:
+  only:
+    - master
+
+deploy:
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    application: masofa
+    deployment_group: masofa-api-group
+    region: ap-northeast-2
+
+notifications:
+  email:
+    recipients:
+      - 'dezcao@gmail.com'
